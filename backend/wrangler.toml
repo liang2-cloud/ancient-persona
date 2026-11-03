@@ -1,9 +1,0 @@
-name = "ancient-persona-api"
-main = "src/index.js"
-compatibility_date = "2025-01-01"
-
-# 非机密变量。机密 Key 不写在这里，用 wrangler secret put DASHSCOPE_API_KEY 设置。
-[vars]
-VISION_MODEL = "qwen3.8-max"
-# 上线后把 GitHub Pages 地址加进来，多个用逗号分隔
-ALLOWED_ORIGINS = "http://localhost:8080"

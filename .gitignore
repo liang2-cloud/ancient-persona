@@ -1,7 +1,0 @@
-node_modules/
-.dev.vars
-.env
-.wrangler/
-.DS_Store
-*.log
-package.json.bak
