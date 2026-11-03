@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>你的前世是谁 · 古风转世测试</title>
+  <meta name="description" content="上传一张照片，看看你的前世是哪位古风人物。仅供娱乐。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <!-- 首页 / 上传 -->
+    <section id="view-home" class="view active">
+      <header class="hero">
+        <h1>你的前世是谁</h1>
+        <p class="subtitle">上传一张正脸照，AI 为你翻找前世卷宗</p>
+      </header>
+
+      <label class="uploader" id="uploader">
+        <input type="file" id="fileInput" accept="image/*" hidden />
+        <div id="previewWrap" class="preview-wrap hidden">
+          <img id="previewImg" alt="预览" />
+        </div>
+        <div id="uploadHint" class="upload-hint">
+          <div class="upload-icon">+</div>
+          <p>点击选择照片</p>
+          <small>建议正脸、光线自然、不戴口罩</small>
+        </div>
+      </label>
+
+      <div class="privacy">
+        <label>
+          <input type="checkbox" id="agreeCheck" />
+          我已知晓：照片仅用于本次分析，不会被保存；结果仅供娱乐。
+        </label>
+      </div>
+
+      <button id="startBtn" class="btn primary" disabled>开始测试</button>
+      <p id="errorMsg" class="error hidden"></p>
+    </section>
+
+    <!-- 加载 -->
+    <section id="view-loading" class="view">
+      <div class="loader">
+        <div class="ink-circle"></div>
+        <p id="loadingText">正在翻找你的前世卷宗…</p>
+      </div>
+    </section>
+
+    <!-- 结果 -->
+    <section id="view-result" class="view">
+      <article class="card identity-card">
+        <div class="dynasty" id="rDynasty"></div>
+        <h2 id="rTitle"></h2>
+        <p class="verdict" id="rVerdict"></p>
+      </article>
+
+      <article class="card">
+        <h3>气质雷达</h3>
+        <canvas id="radar" width="320" height="320"></canvas>
+        <ul class="dims" id="rDims"></ul>
+      </article>
+
+      <article class="card">
+        <h3>面部依据</h3>
+        <ul class="obs" id="rObs"></ul>
+      </article>
+
+      <article class="card">
+        <h3>前世小传</h3>
+        <p class="story" id="rStory"></p>
+      </article>
+
+      <article class="card">
+        <h3>今生建议</h3>
+        <ul class="tips" id="rTips"></ul>
+      </article>
+
+      <p class="disclaimer">结果由 AI 生成，仅供娱乐，不代表真实的前世。</p>
+
+      <div class="actions">
+        <button id="shareBtn" class="btn primary">分享结果</button>
+        <button id="retryBtn" class="btn ghost">再测一次</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- 分享卡（隐藏，用于生成图片） -->
+  <canvas id="shareCanvas" width="750" height="1334" hidden></canvas>
+
+  <script src="archetypes.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
